@@ -1,0 +1,13 @@
+{
+	"name": "vortex-access",
+	"version": "1.0.0",
+	"dependencies": {
+		"ora": "^6.0.0",
+		"chalk": "^4.0.0",
+		"viem": "^1.0.0",
+		"startale-aa-sdk": "^1.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^14.0.0"
+	}
+}

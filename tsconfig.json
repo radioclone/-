@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@vortex/*": ["packages/VorteX/vortex-access/*"],
+      "@scs-demo/*": ["packages/SCS-AA-Demo-UI/src/*"],
+      "@aliza/*": ["packages/Aliza-Crypto-Forecaster/src/*"],
+      "@shared/*": ["libs/shared/*"],
+      "@web3-utils/*": ["libs/web3-utils/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "build"]
+}

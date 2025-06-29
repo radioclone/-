@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Dashboard - HTML/HTMX Demo</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --text-primary: #ffffff;
+            --border-primary: #ffffff;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            line-height: 1.4;
+            padding: var(--spacing-lg);
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .header p {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .card {
+            border: 1px solid var(--border-primary);
+            padding: var(--spacing-lg);
+            background: transparent;
+        }
+
+        .card h3 {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.8;
+        }
+
+        .card-content {
+            font-size: 0.875rem;
+        }
+
+        .loading {
+            opacity: 0.7;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .button {
+            background: transparent;
+            border: 1px solid var(--border-primary);
+            color: var(--text-primary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.05em;
+            margin: var(--spacing-xs);
+        }
+
+        .button:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .input {
+            background: transparent;
+            border: 1px solid var(--border-primary);
+            color: var(--text-primary);
+            padding: var(--spacing-sm);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            width: 100%;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            margin-bottom: var(--spacing-xs);
+            opacity: 0.8;
+        }
+
+        .json-display {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-primary);
+            padding: var(--spacing-md);
+            font-size: 0.75rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: var(--spacing-sm);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            margin-right: var(--spacing-xs);
+            animation: pulse 2s infinite;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-primary);
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>WEB3 ECOSYSTEM DASHBOARD</h1>
+        <p>HTML/HTMX Demo - No JavaScript, Pure Backend API Integration</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3><span class="status-indicator"></span>SYSTEM STATUS</h3>
+            <div class="card-content">
+                <div 
+                    hx-get="http://localhost:3001/api/system/status"
+                    hx-trigger="load, every 30s"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    class="loading">
+                    Loading system status...
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>WALLET BALANCE</h3>
+            <div class="card-content">
+                <div 
+                    hx-get="http://localhost:3001/api/wallet/balance/0x1234567890123456789012345678901234567890"
+                    hx-trigger="load"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    class="loading">
+                    Loading wallet balance...
+                </div>
+                <div class="actions">
+                    <button 
+                        class="button"
+                        hx-get="http://localhost:3001/api/wallet/balance/0x1234567890123456789012345678901234567890"
+                        hx-target="#balance-result">
+                        REFRESH
+                    </button>
+                </div>
+                <div id="balance-result" class="json-display" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>CREATE SMART WALLET</h3>
+            <div class="card-content">
+                <form hx-post="http://localhost:3001/api/wallet/create" hx-target="#wallet-result">
+                    <div class="form-group">
+                        <label for="userId">USER ID</label>
+                        <input type="text" name="userId" id="userId" class="input" value="demo_user_001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">WALLET TYPE</label>
+                        <select name="type" id="type" class="input">
+                            <option value="smart">Smart Wallet</option>
+                            <option value="eoa">EOA Wallet</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="button">CREATE WALLET</button>
+                </form>
+                <div id="wallet-result" class="json-display"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>CRYPTO PREDICTION</h3>
+            <div class="card-content">
+                <form hx-post="http://localhost:3001/api/prediction/create" hx-target="#prediction-result">
+                    <div class="form-group">
+                        <label for="symbol">SYMBOL</label>
+                        <select name="symbol" id="symbol" class="input">
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="ETH">Ethereum (ETH)</option>
+                            <option value="ADA">Cardano (ADA)</option>
+                            <option value="SOL">Solana (SOL)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeframe">TIMEFRAME</label>
+                        <select name="timeframe" id="timeframe" class="input">
+                            <option value="1h">1 Hour</option>
+                            <option value="4h">4 Hours</option>
+                            <option value="1d" selected>1 Day</option>
+                            <option value="1w">1 Week</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="predictionType">PREDICTION TYPE</label>
+                        <select name="predictionType" id="predictionType" class="input">
+                            <option value="price" selected>Price Prediction</option>
+                            <option value="trend">Trend Analysis</option>
+                            <option value="volatility">Volatility Forecast</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="button">CREATE PREDICTION</button>
+                </form>
+                <div id="prediction-result" class="json-display"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>SEND TRANSACTION</h3>
+            <div class="card-content">
+                <form hx-post="http://localhost:3001/api/transaction/send" hx-target="#transaction-result">
+                    <div class="form-group">
+                        <label for="from">FROM ADDRESS</label>
+                        <input type="text" name="from" id="from" class="input" value="0x1234567890123456789012345678901234567890" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="to">TO ADDRESS</label>
+                        <input type="text" name="to" id="to" class="input" value="0x9876543210987654321098765432109876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="value">AMOUNT (ETH)</label>
+                        <input type="text" name="value" id="value" class="input" value="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="usePaymaster" value="true" checked> Use Paymaster (Free Gas)
+                        </label>
+                    </div>
+                    <button type="submit" class="button">SEND TRANSACTION</button>
+                </form>
+                <div id="transaction-result" class="json-display"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>SYSTEM METRICS</h3>
+            <div class="card-content">
+                <div 
+                    hx-get="http://localhost:3001/api/system/metrics"
+                    hx-trigger="load, every 60s"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    class="loading">
+                    Loading system metrics...
+                </div>
+                <div class="actions">
+                    <button 
+                        class="button"
+                        hx-get="http://localhost:3001/api/system/metrics"
+                        hx-target="#metrics-result">
+                        REFRESH METRICS
+                    </button>
+                </div>
+                <div id="metrics-result" class="json-display" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            HTMX Demo • API Server: localhost:3001 • 
+            <span hx-get="http://localhost:3001/health" hx-trigger="load, every 30s" hx-target="this" hx-swap="innerHTML">
+                Checking API...
+            </span>
+        </p>
+        <p style="margin-top: 0.5rem;">
+            Switch to React: <a href="http://localhost:3000" style="color: white;">localhost:3000</a> • 
+            Account Abstraction: <a href="http://localhost:3002" style="color: white;">localhost:3002</a> • 
+            Crypto Forecaster: <a href="http://localhost:3003" style="color: white;">localhost:3003</a>
+        </p>
+    </div>
+
+    <script>
+        // Enhanced HTMX response handling
+        document.body.addEventListener('htmx:responseError', function(e) {
+            console.error('HTMX Error:', e.detail);
+            e.target.innerHTML = '<div style="color: #ff6b6b;">Error: Could not connect to API server</div>';
+        });
+
+        document.body.addEventListener('htmx:afterRequest', function(e) {
+            if (e.detail.xhr.status === 200) {
+                try {
+                    const response = JSON.parse(e.detail.xhr.responseText);
+                    if (response.success && e.target.classList.contains('json-display')) {
+                        e.target.style.display = 'block';
+                        e.target.textContent = JSON.stringify(response, null, 2);
+                    }
+                } catch (err) {
+                    // Handle non-JSON responses
+                    if (e.target.classList.contains('json-display')) {
+                        e.target.style.display = 'block';
+                        e.target.textContent = e.detail.xhr.responseText;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

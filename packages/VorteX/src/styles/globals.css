@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pure Black & White Terminal Design */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background: #000000;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.4;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Pure black background - no gradients */
+body {
+  background: #000000;
+  min-height: 100vh;
+}
+
+/* Minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Terminal cursor */
+.cursor::after {
+  content: '_';
+  animation: blink 1s infinite;
+  color: #ffffff;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Clean Component System */
+.terminal-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.terminal-header {
+  background: #000000;
+  border-bottom: 1px solid #333333;
+  padding: 16px 0;
+  font-size: 12px;
+}
+
+.terminal-card {
+  background: #000000;
+  border: 1px solid #333333;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.terminal-card:hover {
+  border-color: #555555;
+}
+
+.terminal-button {
+  background: #000000;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.terminal-button:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.terminal-button:disabled {
+  border-color: #333333;
+  color: #333333;
+  cursor: not-allowed;
+}
+
+.terminal-button:disabled:hover {
+  background: #000000;
+  color: #333333;
+}
+
+/* Pure BW Status */
+.status-active { color: #ffffff; }
+.status-inactive { color: #666666; }
+.status-disabled { color: #333333; }
+
+/* Typography */
+.text-xs { font-size: 10px; }
+.text-sm { font-size: 11px; }
+.text-base { font-size: 13px; }
+.text-lg { font-size: 15px; }
+.text-xl { font-size: 17px; }
+
+/* Layout */
+.grid { display: grid; gap: 20px; }
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* Module Cards */
+.module-card {
+  background: #000000;
+  border: 1px solid #333333;
+  padding: 24px;
+  cursor: pointer;
+  transition: border-color 0.1s ease;
+}
+
+.module-card:hover {
+  border-color: #ffffff;
+}
+
+/* API Status Indicators */
+.api-status::before {
+  content: '●';
+  margin-right: 8px;
+}
+
+.api-online::before { color: #ffffff; }
+.api-offline::before { color: #333333; }

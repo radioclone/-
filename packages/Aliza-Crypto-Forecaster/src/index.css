@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  html {
+    height: -webkit-fill-available;
+  }
+  /* Add iOS momentum scrolling for iOS devices */
+  @supports (-webkit-touch-callout: none) {
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+/* Add safe area insets for modern iOS devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset-bottom {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+  .safe-area-inset-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  .safe-area-inset-left {
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+  .safe-area-inset-right {
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+.gradient-text {
+  @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+}
+
+/* Marquee animations for the price feed */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 40s linear infinite;
+}
+
+/* Typing animation for the retroverse text */
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0;
+  }
+}
+
+.animate-typewriter {
+  animation: typewriter 2s steps(20, end) forwards;
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Update TypingText component styles */
+.typing-text {
+  @apply text-[#b4d7ff] font-bold text-2xl tracking-wider whitespace-nowrap overflow-hidden font-mono;
+  transform: scale(1, 1.1);
+}
+
+.cursor {
+  @apply w-1 h-8 bg-[#b4d7ff] ml-1;
+}
+
+/* Education and News section styles */
+.education-section, .news-section {
+  @apply bg-[#D3E4FD]/10 backdrop-blur-sm rounded-xl border border-white/10;
+}
+
+/* Mobile-specific optimization */
+@media (max-width: 640px) {
+  .typing-text {
+    @apply text-xl;
+  }
+  
+  .cursor {
+    @apply h-6;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+/* iPad-specific optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .typing-text {
+    @apply text-2xl;
+  }
+  
+  .cursor {
+    @apply h-7;
+  }
+}
+
+/* Fix bottom spacing for devices with home indicator */
+.chat-interface-container {
+  @apply pb-safe;
+}
+
+/* Fix notch/dynamic island area on newer iPhones */
+.notch-area-padding {
+  @apply pt-safe;
+}
+
+/* Add iOS native feel when tapping buttons */
+@media (hover: none) {
+  button:active, a:active {
+    transition: transform 0.1s;
+    transform: scale(0.96);
+  }
+}
+
+/* Custom utilities for iOS/iPadOS safe areas */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1.5rem);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 1rem);
+}
+
+/* Z-index utilities for proper layering */
+.z-header {
+  z-index: 50;
+}
+
+.z-ticker {
+  z-index: 40;
+}
+
+.z-content {
+  z-index: 10;
+}
+
+.z-chat {
+  z-index: 60;
+}
+
+.z-indicator {
+  z-index: 45;
+}
+
+/* Neo-blur effect for components */
+.neo-blur {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}

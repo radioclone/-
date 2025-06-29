@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEE DOGG Vortex Access</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #121212;
+      color: #ffffff;
+    }
+    
+    header {
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      margin-top: 0;
+    }
+    
+    #tee-dogg-container {
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .access-granted {
+      padding: 15px;
+      background-color: #2e7d32;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .access-denied {
+      padding: 15px;
+      background-color: #c62828;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background-color: #7c4dff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VorteX</h1>
+    <!-- Wallet section will be dynamically inserted here -->
+  </header>
+  
+  <main>
+    <div id="tee-dogg-container">
+      <h2>TEE DOGG</h2>
+      <p>The guardian of VorteX. Connect your wallet to proceed.</p>
+    </div>
+    
+    <!-- Access container will be dynamically inserted here -->
+    
+    <div id="dice-container" class="hidden">
+      <!-- Dice roll interface will be added here -->
+    </div>
+    
+    <div id="experience-container" class="hidden">
+      <!-- 3D experience will be loaded here -->
+    </div>
+  </main>
+  
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
