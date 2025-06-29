@@ -2,7 +2,7 @@
 ## Creator Economy Platform with Account Abstraction
 
 ### 🎯 What We've Built
-A working creator platform with **ERC-4337 account abstraction on Soneium**, featuring gasless transactions and social login. Ready to expand to **Astar for Build2Earn integration**.
+A working creator economy platform with **ERC-4337 account abstraction on Soneium**, featuring gasless transactions and social login. Built using **Startale, Astar, and Sonic assets** - applying to **Soneium 4 All incubator** for expansion.
 
 ### ✅ Currently Working
 - **Social Login**: Google/Twitter authentication via Privy
@@ -41,50 +41,50 @@ const userOp = await account.sendTransaction({
 });
 ```
 
-#### Next: Astar Expansion 📅
-- Port proven contracts to Astar
-- Multi-chain account sync
-- Build2Earn dApp registration
-- Creator monetization tools
+#### Next: Soneium Expansion 📅
+- Enhanced creator monetization tools
+- Advanced account abstraction features
+- Sony ecosystem integration
+- Community building and scaling
 
 ### � Incubator Focus
 
 #### 1-2 Month Incubator Scope
-- **Astar Deployment**: Port working Soneium contracts
-- **dApp Staking**: Register for Build2Earn and optimize rewards
-- **Creator Tools**: NFT token-gating for Astar assets
-- **Multi-Chain**: Basic state synchronization between networks
-- **Community**: Onboard 50+ creators for testing and feedback
+- **Creator Tools**: Enhanced monetization using Sonic assets
+- **Startale Integration**: Advanced account abstraction features  
+- **Astar Bridge**: Cross-chain creator identity and rewards
+- **Community**: Onboard 100+ creators on Soneium
+- **Sony Ecosystem**: Deep integration with Soneium infrastructure
 
 #### Technical Stack (Current)
 - **Frontend**: React + TypeScript + TailwindCSS
 - **Backend**: Node.js + Express
-- **Blockchain**: Soneium (deployed) + Astar (next)
+- **Blockchain**: Soneium (deployed) + Sony ecosystem
 - **Auth**: Privy social login
 - **AA**: Startale SDK for ERC-4337
 
 ### 📈 Roadmap (Realistic)
 
-#### Phase 1: Astar Integration (Week 1-2)
-- [ ] Deploy smart contracts to Astar
-- [ ] Update frontend for multi-chain support
-- [ ] Register for dApp staking
+#### Phase 1: Enhanced Creator Tools (Week 1-2)
+- [ ] Advanced NFT token-gating features
+- [ ] Creator monetization dashboard
+- [ ] Sony ecosystem integrations
 
-#### Phase 2: Creator MVP (Week 3-4)
-- [ ] NFT token-gating for Astar assets
-- [ ] Simple creator monetization
-- [ ] Build2Earn optimization
+#### Phase 2: Community Growth (Week 3-4)
+- [ ] Creator onboarding automation
+- [ ] Advanced account abstraction features
+- [ ] Partnership integrations
 
-#### Phase 3: Community (Week 5-8)
-- [ ] Onboard 50+ creators for testing
+#### Phase 3: Scale & Polish (Week 5-8)
+- [ ] Onboard 100+ creators for testing
 - [ ] User feedback and iteration
 - [ ] Prepare for production scaling
 
-### 🎯 Grant Application
+### 🎯 Incubator Application
 
-**Astar Build2Earn**: Multi-chain expansion and dApp staking integration
+**Soneium 4 All**: Creator economy platform with proven account abstraction
 
-See [ASTAR_GRANT_APPLICATION.md](ASTAR_GRANT_APPLICATION.md) for complete details.
+See [SONEIUM_GRANT_APPLICATION.md](SONEIUM_GRANT_APPLICATION.md) for complete details.
 
 ### 🔗 Repository Structure
 
@@ -122,4 +122,4 @@ pnpm run dev
 
 ---
 
-**retroverse (レトロバース)** - Soneium to Astar bridge for creators
+**retroverse (レトロバース)** - Soneium creator economy platform
