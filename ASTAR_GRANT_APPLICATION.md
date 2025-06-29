@@ -160,15 +160,7 @@ export class RealisticBuild2EarnIntegration {
 - [ ] Mobile-optimized interface
 - [ ] Documentation and developer resources
 
-### Funding Request
-
-#### Realistic Budget Breakdown
-- **Development Team**: 2 developers x 6 months = $60,000
-- **Infrastructure Costs**: Hosting, RPC, testing = $6,000
-- **Audit & Security**: Smart contract review = $15,000
-- **Marketing & Community**: Creator outreach = $9,000
-- **Total Request**: $90,000
-
+### 
 #### Expected Deliverables
 - **Working dApp on Astar**: Deployed and functional creator platform
 - **Active Creator Community**: 100+ onboarded creators
