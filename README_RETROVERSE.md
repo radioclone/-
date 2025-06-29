@@ -2,7 +2,7 @@
 ## Creator Economy Platform with Account Abstraction
 
 ### 🎯 What We've Built
-A working creator platform with **ERC-4337 account abstraction on Soneium**, featuring gasless transactions and social login. Ready to expand to Astar for Build2Earn integration.
+A working creator platform with **ERC-4337 account abstraction on Soneium**, featuring gasless transactions and social login. Ready to expand to **Astar for Build2Earn integration**.
 
 ### ✅ Currently Working
 - **Social Login**: Google/Twitter authentication via Privy
@@ -49,12 +49,12 @@ const userOp = await account.sendTransaction({
 
 ### � Incubator Focus
 
-#### 1-2 Month Realistic Scope
+#### 1-2 Month Incubator Scope
 - **Astar Deployment**: Port working Soneium contracts
-- **Cross-Chain Sync**: Basic state synchronization
-- **Creator Tools**: Simple NFT token-gating for content
-- **Build2Earn**: Register as dApp, optimize staking
-- **Community**: Onboard 50+ creators for testing
+- **dApp Staking**: Register for Build2Earn and optimize rewards
+- **Creator Tools**: NFT token-gating for Astar assets
+- **Multi-Chain**: Basic state synchronization between networks
+- **Community**: Onboard 50+ creators for testing and feedback
 
 #### Technical Stack (Current)
 - **Frontend**: React + TypeScript + TailwindCSS
@@ -67,25 +67,24 @@ const userOp = await account.sendTransaction({
 
 #### Phase 1: Astar Integration (Week 1-2)
 - [ ] Deploy smart contracts to Astar
-- [ ] Update frontend for multi-chain
-- [ ] Basic cross-chain state sync
+- [ ] Update frontend for multi-chain support
+- [ ] Register for dApp staking
 
 #### Phase 2: Creator MVP (Week 3-4)
 - [ ] NFT token-gating for Astar assets
-- [ ] Simple creator dashboard
-- [ ] Basic monetization flows
+- [ ] Simple creator monetization
+- [ ] Build2Earn optimization
 
 #### Phase 3: Community (Week 5-8)
-- [ ] Onboard 50+ creators
-- [ ] Build2Earn optimization
+- [ ] Onboard 50+ creators for testing
 - [ ] User feedback and iteration
+- [ ] Prepare for production scaling
 
-### 🎯 Grant Applications
+### 🎯 Grant Application
 
-**Soneium For All**: Creator onboarding with proven account abstraction  
-**Astar Build2Earn**: Multi-chain expansion and dApp staking  
+**Astar Build2Earn**: Multi-chain expansion and dApp staking integration
 
-See [ASTAR_GRANT_APPLICATION.md](ASTAR_GRANT_APPLICATION.md) for details.
+See [ASTAR_GRANT_APPLICATION.md](ASTAR_GRANT_APPLICATION.md) for complete details.
 
 ### 🔗 Repository Structure
 
@@ -107,10 +106,19 @@ libs/
 
 ### 🤝 Getting Started
 
-1. **Clone repository**
-2. **Run `pnpm install`**  
-3. **Run `pnpm run dev`**
-4. **Visit `http://localhost:3000`**
+```bash
+# Clone repository
+git clone https://github.com/radioclone/retroverse.git
+cd retroverse
+
+# Install dependencies
+pnpm install
+
+# Start development servers
+pnpm run dev
+
+# Visit http://localhost:3000
+```
 
 ---
 
